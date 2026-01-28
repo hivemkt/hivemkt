@@ -176,7 +176,8 @@ export default function LandingPage() {
         <motion.div
           animate={{ scale: [1, 1.2, 1] }}
           transition={{ duration: 2, repeat: Infinity }}
-          className="absolute -top-1 -right-1 w-4 h-4 bg-yellow-500 rounded-full"
+          className="absolute -top-1 -right-1 w-4 h-4 rounded-full"
+          style={{ backgroundColor: '#f6c500' }}
         />
         <MessageCircle className="w-7 h-7" />
       </motion.a>
@@ -190,13 +191,41 @@ export default function LandingPage() {
           transition={{ duration: 0.8 }}
           className="relative z-10 text-center max-w-5xl mx-auto"
         >
+          {/* Logo */}
+          <motion.div
+            initial={{ scale: 0.8, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ delay: 0.1, duration: 0.6 }}
+            className="mb-8 flex justify-center"
+          >
+            <img 
+              src="/images/logo.png" 
+              alt="HIVE Logo" 
+              className="h-24 sm:h-32 lg:h-40 w-auto"
+              onError={(e) => {
+                e.target.style.display = 'none';
+                e.target.nextSibling.style.display = 'block';
+              }}
+            />
+            <img 
+              src="/images/logo.png" 
+              alt="Logo" 
+              className="text-4xl sm:text-5xl font-bold hidden"
+              style={{ display: 'none', color: '#f6c500' }}
+            />
+          </motion.div>
+
           <motion.div
             initial={{ scale: 0.9, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ delay: 0.2, duration: 0.6 }}
-            className="inline-block mb-6 px-6 py-2 border border-yellow-500/50 rounded-full bg-yellow-500/10"
+            className="inline-block mb-6 px-6 py-2 rounded-full"
+            style={{ 
+              border: '1px solid rgba(246, 197, 0, 0.5)',
+              backgroundColor: 'rgba(246, 197, 0, 0.1)'
+            }}
           >
-            <span className="text-yellow-500 font-semibold text-sm sm:text-base">RESULTADOS REAIS • CRESCIMENTO EXPONENCIAL</span>
+            <span className="font-semibold text-sm sm:text-base" style={{ color: '#f6c500' }}>RESULTADOS REAIS • CRESCIMENTO EXPONENCIAL</span>
           </motion.div>
           
           <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
@@ -209,7 +238,14 @@ export default function LandingPage() {
               className="block"
             >
               {headlines[currentHeadline].text}{' '}
-              <span className="bg-gradient-to-r from-yellow-500 to-yellow-700 bg-clip-text text-transparent">
+              <span 
+                className="bg-clip-text text-transparent"
+                style={{
+                  backgroundImage: 'linear-gradient(to right, #f6c500, rgba(246, 197, 0, 0.8))',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent'
+                }}
+              >
                 {headlines[currentHeadline].highlight}
               </span>
             </motion.span>
@@ -226,7 +262,13 @@ export default function LandingPage() {
             rel="noopener noreferrer"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="inline-block bg-yellow-600 hover:bg-yellow-700 text-black font-bold text-lg px-10 py-4 rounded-full transition-all shadow-lg shadow-yellow-500/50"
+            className="inline-block text-black font-bold text-lg px-10 py-4 rounded-full transition-all shadow-lg"
+            style={{
+              backgroundColor: '#f6c500',
+              boxShadow: '0 10px 40px rgba(246, 197, 0, 0.5)'
+            }}
+            onMouseEnter={(e) => e.target.style.backgroundColor = 'rgba(246, 197, 0, 0.9)'}
+            onMouseLeave={(e) => e.target.style.backgroundColor = '#f6c500'}
           >
             Quero Escalar Agora
           </motion.a>
@@ -237,11 +279,12 @@ export default function LandingPage() {
           transition={{ duration: 2, repeat: Infinity }}
           className="absolute bottom-10 left-1/2 transform -translate-x-1/2"
         >
-          <div className="w-6 h-10 border-2 border-yellow-500 rounded-full flex justify-center">
+          <div className="w-6 h-10 border-2 rounded-full flex justify-center" style={{ borderColor: '#f6c500' }}>
             <motion.div
               animate={{ y: [0, 12, 0] }}
               transition={{ duration: 1.5, repeat: Infinity }}
-              className="w-1.5 h-1.5 bg-yellow-500 rounded-full mt-2"
+              className="w-1.5 h-1.5 rounded-full mt-2"
+              style={{ backgroundColor: '#f6c500' }}
             />
           </div>
         </motion.div>
@@ -249,7 +292,7 @@ export default function LandingPage() {
 
       {/* Client Logos */}
       <FadeInSection>
-        <section className="py-20 px-4 sm:px-6 lg:px-8 border-y border-yellow-900/20">
+        <section className="py-20 px-4 sm:px-6 lg:px-8" style={{ borderTop: '1px solid rgba(246, 197, 0, 0.2)', borderBottom: '1px solid rgba(246, 197, 0, 0.2)' }}>
           <div className="max-w-7xl mx-auto">
             <h3 className="text-center text-gray-400 text-sm sm:text-base font-semibold mb-12 tracking-wider">
               RESULTADOS REAIS DOS NOSSOS CLIENTES
@@ -264,7 +307,12 @@ export default function LandingPage() {
                   animate={{ opacity: 1, x: 0 }}
                   exit={{ opacity: 0, x: -100 }}
                   transition={{ duration: 0.5 }}
-                  className="border border-yellow-500/30 rounded-2xl p-8 sm:p-10 hover:border-yellow-500/60 transition-all duration-300"
+                  className="rounded-2xl p-8 sm:p-10 transition-all duration-300"
+                  style={{
+                    border: '1px solid rgba(246, 197, 0, 0.3)'
+                  }}
+                  onMouseEnter={(e) => e.target.style.borderColor = 'rgba(246, 197, 0, 0.6)'}
+                  onMouseLeave={(e) => e.target.style.borderColor = 'rgba(246, 197, 0, 0.3)'}
                 >
                   <h4 className="text-white text-2xl sm:text-3xl font-bold mb-8 text-center uppercase">
                     {resultsData[currentCase].title}
@@ -279,7 +327,7 @@ export default function LandingPage() {
                         className="text-center flex flex-col items-center justify-center"
                       >
                         <p className="text-gray-400 text-sm sm:text-base lg:text-lg mb-2 sm:mb-3">{metric.label}</p>
-                        <p className="text-yellow-500 text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold leading-tight">
+                        <p className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold leading-tight" style={{ color: '#f6c500' }}>
                           <CountUpMetric 
                             end={metric.value} 
                             prefix={metric.prefix || ''} 
@@ -295,7 +343,10 @@ export default function LandingPage() {
 
               <button
                 onClick={prevCase}
-                className="absolute left-0 sm:left-2 top-1/2 -translate-y-1/2 -translate-x-14 sm:-translate-x-16 bg-yellow-600 hover:bg-yellow-700 text-black p-2 sm:p-3 rounded-full transition-all shadow-lg z-10"
+                className="absolute left-0 sm:left-2 top-1/2 -translate-y-1/2 -translate-x-14 sm:-translate-x-16 text-black p-2 sm:p-3 rounded-full transition-all shadow-lg z-10"
+                style={{ backgroundColor: '#f6c500' }}
+                onMouseEnter={(e) => e.target.style.backgroundColor = 'rgba(246, 197, 0, 0.9)'}
+                onMouseLeave={(e) => e.target.style.backgroundColor = '#f6c500'}
                 aria-label="Case anterior"
               >
                 <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6" />
@@ -303,7 +354,10 @@ export default function LandingPage() {
               
               <button
                 onClick={nextCase}
-                className="absolute right-0 sm:right-2 top-1/2 -translate-y-1/2 translate-x-14 sm:translate-x-16 bg-yellow-600 hover:bg-yellow-700 text-black p-2 sm:p-3 rounded-full transition-all shadow-lg z-10"
+                className="absolute right-0 sm:right-2 top-1/2 -translate-y-1/2 translate-x-14 sm:translate-x-16 text-black p-2 sm:p-3 rounded-full transition-all shadow-lg z-10"
+                style={{ backgroundColor: '#f6c500' }}
+                onMouseEnter={(e) => e.target.style.backgroundColor = 'rgba(246, 197, 0, 0.9)'}
+                onMouseLeave={(e) => e.target.style.backgroundColor = '#f6c500'}
                 aria-label="Próximo case"
               >
                 <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6" />
@@ -315,9 +369,11 @@ export default function LandingPage() {
                   <button
                     key={index}
                     onClick={() => setCurrentCase(index)}
-                    className={`w-3 h-3 rounded-full transition-all ${
-                      index === currentCase ? 'bg-yellow-500 w-8' : 'bg-yellow-500/30'
-                    }`}
+                    className="w-3 h-3 rounded-full transition-all"
+                    style={{
+                      backgroundColor: index === currentCase ? '#f6c500' : 'rgba(246, 197, 0, 0.3)',
+                      width: index === currentCase ? '32px' : '12px'
+                    }}
                     aria-label={`Ir para case ${index + 1}`}
                   />
                 ))}
@@ -328,23 +384,23 @@ export default function LandingPage() {
       </FadeInSection>
 
       <FadeInSection>
-        <section className="py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-[#181816] via-yellow-950/10 to-[#181816]">
+        <section className="py-24 px-4 sm:px-6 lg:px-8" style={{ background: 'linear-gradient(to bottom, #181816, rgba(246, 197, 0, 0.05), #181816)' }}>
           <div className="max-w-7xl mx-auto">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
               <div>
-                <div className="text-5xl sm:text-6xl font-bold text-yellow-500 mb-4">
+                <div className="text-5xl sm:text-6xl font-bold mb-4" style={{ color: '#f6c500' }}>
                   <CountUpMetric end={1} prefix="+R$ " suffix="M" />
                 </div>
                 <p className="text-xl text-gray-400">Investidos em Mídia</p>
               </div>
               <div>
-                <div className="text-5xl sm:text-6xl font-bold text-yellow-500 mb-4">
+                <div className="text-5xl sm:text-6xl font-bold mb-4" style={{ color: '#f6c500' }}>
                   <CountUpMetric end={10} prefix="+" suffix="M" />
                 </div>
                 <p className="text-xl text-gray-400">Visualizações Geradas</p>
               </div>
               <div>
-                <div className="text-5xl sm:text-6xl font-bold text-yellow-500 mb-4">
+                <div className="text-5xl sm:text-6xl font-bold mb-4" style={{ color: '#f6c500' }}>
                   <CountUpMetric end={100} prefix="+" suffix="K" />
                 </div>
                 <p className="text-xl text-gray-400">Leads Gerados</p>
@@ -360,7 +416,7 @@ export default function LandingPage() {
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-16">
               <h2 className="text-4xl sm:text-5xl font-bold mb-6">
-                O Que <span className="text-yellow-500">Entregamos</span>
+                O Que <span style={{ color: '#f6c500' }}>Entregamos</span>
               </h2>
               <p className="text-xl text-gray-400 max-w-2xl mx-auto">
                 Soluções completas de marketing digital focadas em performance e resultados tangíveis
@@ -375,16 +431,22 @@ export default function LandingPage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.2 }}
-                  whileHover={{ y: -8, borderColor: "rgb(234, 179, 8)" }}
-                  className="relative p-6 rounded-2xl bg-gradient-to-br from-yellow-900/10 to-transparent backdrop-blur-sm border border-yellow-900/20 transition-all duration-300 group"
+                  whileHover={{ y: -8 }}
+                  className="relative p-6 rounded-2xl backdrop-blur-sm transition-all duration-300 group"
+                  style={{
+                    background: 'linear-gradient(to bottom right, rgba(246, 197, 0, 0.1), transparent)',
+                    border: '1px solid rgba(246, 197, 0, 0.2)'
+                  }}
+                  onMouseEnter={(e) => e.target.style.borderColor = '#f6c500'}
+                  onMouseLeave={(e) => e.target.style.borderColor = 'rgba(246, 197, 0, 0.2)'}
                 >
-                  <div className="text-yellow-500 mb-4 group-hover:scale-110 transition-transform">
+                  <div className="mb-4 group-hover:scale-110 transition-transform" style={{ color: '#f6c500' }}>
                     {service.icon}
                   </div>
                   <h3 className="text-xl font-bold mb-3">{service.title}</h3>
                   <p className="text-gray-400 leading-relaxed text-sm">{service.description}</p>
                   
-                  <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-yellow-500/0 to-yellow-500/0 group-hover:from-yellow-500/5 group-hover:to-yellow-500/10 transition-all duration-300 pointer-events-none" />
+                  <div className="absolute inset-0 rounded-2xl transition-all duration-300 pointer-events-none group-hover:bg-gradient-to-br group-hover:from-[rgba(246,197,0,0.05)] group-hover:to-[rgba(246,197,0,0.1)]" />
                 </motion.div>
               ))}
             </div>
@@ -395,12 +457,15 @@ export default function LandingPage() {
       {/* Final CTA */}
       <FadeInSection>
         <section className="py-24 px-4 sm:px-6 lg:px-8">
-          <div className="max-w-4xl mx-auto text-center bg-gradient-to-br from-yellow-600 to-yellow-800 rounded-3xl p-12 sm:p-16 shadow-2xl shadow-yellow-500/20">
+          <div className="max-w-4xl mx-auto text-center rounded-3xl p-12 sm:p-16 shadow-2xl" style={{
+            background: 'linear-gradient(to bottom right, #f6c500, rgba(246, 197, 0, 0.8))',
+            boxShadow: '0 25px 50px rgba(246, 197, 0, 0.2)'
+          }}>
             <Award className="w-16 h-16 mx-auto mb-6 text-black" />
-            <h2 className="text-3xl sm:text-5xl font-bold mb-6">
+            <h2 className="text-3xl sm:text-5xl font-bold mb-6 text-black">
               Pronto Para Dominar Seu Mercado?
             </h2>
-            <p className="text-xl mb-8 text-yellow-50">
+            <p className="text-xl mb-8 text-black/80">
               Junte-se ao movimento HIVE e transforme seus resultados com nossas estratégias.
             </p>
             <motion.a
@@ -409,7 +474,8 @@ export default function LandingPage() {
               rel="noopener noreferrer"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="inline-block bg-black text-yellow-500 font-bold text-lg px-10 py-4 rounded-full hover:bg-gray-900 transition-all shadow-lg"
+              className="inline-block bg-black font-bold text-lg px-10 py-4 rounded-full hover:bg-gray-900 transition-all shadow-lg"
+              style={{ color: '#f6c500' }}
             >
               Falar Com Especialista
             </motion.a>
@@ -417,29 +483,54 @@ export default function LandingPage() {
         </section>
       </FadeInSection>
 
-      <footer className="border-t border-yellow-900/20 py-12 px-4 sm:px-6 lg:px-8">
+      <footer className="py-12 px-4 sm:px-6 lg:px-8" style={{ borderTop: '1px solid rgba(246, 197, 0, 0.2)' }}>
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col md:flex-row justify-between items-center gap-6">
             <div className="text-center md:text-left">
-              <h3 className="text-2xl font-bold text-yellow-500 mb-2">HIVE</h3>
-              <p className="text-gray-400">Performance que transforma negócios</p>
+              <img 
+                src="/images/logo.png" 
+                alt="Logo" 
+                className="h-8 sm:h-10 mx-auto md:mx-0"
+                onError={(e) => {
+                  e.target.style.display = 'none';
+                }}
+              />
+              <p className="text-gray-400 mt-2">Performance que transforma negócios</p>
             </div>
             
             <div className="flex gap-6">
-              <motion.a whileHover={{ scale: 1.2, color: "#eab308" }} href="#" className="text-gray-400 hover:text-yellow-500 transition-colors">
+              <motion.a 
+                whileHover={{ scale: 1.2 }} 
+                href="#" 
+                className="text-gray-400 transition-colors"
+                onMouseEnter={(e) => e.target.style.color = '#f6c500'}
+                onMouseLeave={(e) => e.target.style.color = 'rgb(156, 163, 175)'}
+              >
                 <Instagram className="w-6 h-6" />
               </motion.a>
-              <motion.a whileHover={{ scale: 1.2, color: "#eab308" }} href="#" className="text-gray-400 hover:text-yellow-500 transition-colors">
+              <motion.a 
+                whileHover={{ scale: 1.2 }} 
+                href="#" 
+                className="text-gray-400 transition-colors"
+                onMouseEnter={(e) => e.target.style.color = '#f6c500'}
+                onMouseLeave={(e) => e.target.style.color = 'rgb(156, 163, 175)'}
+              >
                 <Facebook className="w-6 h-6" />
               </motion.a>
-              <motion.a whileHover={{ scale: 1.2, color: "#eab308" }} href="#" className="text-gray-400 hover:text-yellow-500 transition-colors">
+              <motion.a 
+                whileHover={{ scale: 1.2 }} 
+                href="#" 
+                className="text-gray-400 transition-colors"
+                onMouseEnter={(e) => e.target.style.color = '#f6c500'}
+                onMouseLeave={(e) => e.target.style.color = 'rgb(156, 163, 175)'}
+              >
                 <Linkedin className="w-6 h-6" />
               </motion.a>
             </div>
           </div>
           
-          <div className="mt-8 pt-8 border-t border-yellow-900/20 text-center text-gray-500 text-sm">
-            © 2026 HIVE. Todos os direitos reservados.
+          <div className="mt-8 pt-8 text-center text-gray-500 text-sm" style={{ borderTop: '1px solid rgba(246, 197, 0, 0.2)' }}>
+            © 2026 Todos os direitos reservados.
           </div>
         </div>
       </footer>
