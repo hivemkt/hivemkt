@@ -6,9 +6,6 @@ export default {
   ],
   theme: {
     extend: {
-      colors: {
-        background: '#181816',
-      },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
       },
