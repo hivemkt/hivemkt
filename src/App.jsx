@@ -199,19 +199,13 @@ export default function LandingPage() {
             className="mb-8 flex justify-center"
           >
             <img 
-              src="/images/logo.png" 
-              alt="HIVE Logo" 
-              className="h-24 sm:h-32 lg:h-40 w-auto"
-              onError={(e) => {
-                e.target.style.display = 'none';
-                e.target.nextSibling.style.display = 'block';
-              }}
-            />
-            <img 
-              src="/images/logo.png" 
+              src="images/logo.png" 
               alt="Logo" 
-              className="text-4xl sm:text-5xl font-bold hidden"
-              style={{ display: 'none', color: '#f6c500' }}
+              className="h-32 sm:h-40 lg:h-48 w-auto object-contain"
+              onError={(e) => {
+                console.error('Erro ao carregar logo');
+                e.target.style.display = 'none';
+              }}
             />
           </motion.div>
 
@@ -488,10 +482,11 @@ export default function LandingPage() {
           <div className="flex flex-col md:flex-row justify-between items-center gap-6">
             <div className="text-center md:text-left">
               <img 
-                src="/images/logo.png" 
+                src="images/logo.png" 
                 alt="Logo" 
-                className="h-8 sm:h-10 mx-auto md:mx-0"
+                className="h-10 sm:h-12 w-auto object-contain mx-auto md:mx-0"
                 onError={(e) => {
+                  console.error('Erro ao carregar logo no footer');
                   e.target.style.display = 'none';
                 }}
               />
