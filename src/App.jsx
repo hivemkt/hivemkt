@@ -111,26 +111,16 @@ export default function LandingPage() {
     {
       title: "Case 1",
       metrics: [
-        { label: "Visualizações", value: 21349 },
-        { label: "Alcance", value: 18679 },
-        { label: "Impressões", value: 22903 },
-        { label: "Valor usado", value: 232.66, prefix: "R$ ", decimals: 2 },
-        { label: "Cliques", value: 734 },
-        { label: "CPC", value: 0.32, prefix: "R$ ", decimals: 2 }
+        { label: "ROAS", value: 40, suffix: "x" },
+        { label: "Cliques", value: 38542 },
+        { label: "Impressões", value: 2007641 },
+        { label: "Valor usado", value: 136395.10, prefix: "R$ ", decimals: 2 },
+        { label: "CPC", value: 3, prefix: "R$ ", decimals: 2 },
+        { label: "Receita Gerada", value: 6886387.00, prefix: "R$ ", decimals: 2 }
       ]
     },
     {
       title: "Case 2",
-      metrics: [
-        { label: "Alcance", value: 124473 },
-        { label: "Impressões", value: 193969 },
-        { label: "Valor usado", value: 1054.37, prefix: "R$ ", decimals: 2 },
-        { label: "Cliques", value: 1199 },
-        { label: "Visualizações", value: 206481 }
-      ]
-    },
-    {
-      title: "Case 3",
       metrics: [
         { label: "Impressões", value: 173545 },
         { label: "Cliques", value: 4733 },
@@ -141,14 +131,24 @@ export default function LandingPage() {
       ]
     },
     {
+      title: "Case 3",
+      metrics: [
+        { label: "Alcance", value: 124473 },
+        { label: "Impressões", value: 193969 },
+        { label: "Valor usado", value: 1054.37, prefix: "R$ ", decimals: 2 },
+        { label: "Cliques", value: 1199 },
+        { label: "Visualizações", value: 206481 }
+      ]
+    },
+    {
       title: "Case 4",
       metrics: [
-        { label: "ROAS", value: 40, suffix: "x" },
-        { label: "Cliques", value: 38542 },
-        { label: "Impressões", value: 2007641 },
-        { label: "Valor usado", value: 136395.10, prefix: "R$ ", decimals: 2 },
-        { label: "CPC", value: 3, prefix: "R$ ", decimals: 2 },
-        { label: "Receita Gerada", value: 6886387.00, prefix: "R$ ", decimals: 2 }
+        { label: "Visualizações", value: 21349 },
+        { label: "Alcance", value: 18679 },
+        { label: "Impressões", value: 22903 },
+        { label: "Valor usado", value: 232.66, prefix: "R$ ", decimals: 2 },
+        { label: "Cliques", value: 734 },
+        { label: "CPC", value: 0.32, prefix: "R$ ", decimals: 2 }
       ]
     }
   ];
